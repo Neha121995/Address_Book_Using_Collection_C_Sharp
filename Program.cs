@@ -7,7 +7,7 @@ namespace Address_Book_Using_Collection
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Address Book using Collection");
-            AddressBookCollection.AddContact();
+            AddressBookCollection.addAddressBook();
             Console.WriteLine("\n");
             AddressBookCollection.ContactsDisplay();
             Console.WriteLine("\n");
@@ -15,7 +15,9 @@ namespace Address_Book_Using_Collection
             Console.WriteLine("\n");
             AddressBookCollection.ContactsDisplay();
             Console.WriteLine("\n");
-            AddressBookCollection.DeleteContact();
+            AddressBookCollection.ContactsDisplay();
+            AddressBookCollection.ContactsDisplay();
+            AddressBookCollection.ContactsDisplay();
             AddressBookCollection.ContactsDisplay();
         }
     }
