@@ -12,7 +12,7 @@ namespace Address_Book_Using_Collection
         public string city { get; set; }
         public string state { get; set; }
         public string zipCode { get; set; }
-        public string PhoneNunmber { get; set; }
+        public string phoneNunmber { get; set; }
         public string eMail { get; set; }
     }
 }
