@@ -11,7 +11,8 @@ namespace Address_Book_Using_Collection
 
         public static void addAddressBook()
         {
-            int count = 2;
+            Console.WriteLine("How many addressbooks do you want to create?");
+            int count = Convert.ToInt32(Console.ReadLine());
             while (count > 0)
             {
                 Console.WriteLine("Do you want to add the contact in the existing addressbook or new addressbook\n Enter the number accordingly\n 1. New addressbook\n 2. Existing addressbook");
@@ -64,9 +65,19 @@ namespace Address_Book_Using_Collection
             while (personNum > 0)
             {
                 Contacts person = new Contacts();
-
+            firstName:
                 Console.WriteLine("Enter your First name");
-                person.firstName = Console.ReadLine();
+                string firstName = Console.ReadLine();
+                if (NameDuplicationCheck(addressBookName, firstName))
+                {
+                    person.firstName = firstName;
+                }
+                else
+                {
+                    Console.WriteLine("The name {0} already  exist in the current address book. please enter a new name", firstName);
+                    goto firstName;
+                }
+
                 Console.WriteLine("Enter your Last name");
                 person.lastName = Console.ReadLine();
                 Console.WriteLine("Enter your address");
@@ -76,9 +87,9 @@ namespace Address_Book_Using_Collection
                 Console.WriteLine("Enter your State");
                 person.state = Console.ReadLine();
                 Console.WriteLine("Enter your Zip code");
-                person.ZipCode = Console.ReadLine();
+                person.zipCode = Console.ReadLine();
                 Console.WriteLine("Enter your Phone number");
-                person.PhoneNunmber = Console.ReadLine();
+                person.phoneNunmber = Console.ReadLine();
                 Console.WriteLine("Enter your Email ID");
                 person.eMail = Console.ReadLine();
 
@@ -89,7 +100,37 @@ namespace Address_Book_Using_Collection
             }
         }
 
-
+        public static bool NameDuplicationCheck(string addressBookName, string firstName)
+        {
+            int flag = 0;
+            if (mySystem[addressBookName].Count > 0)
+            {
+                foreach (Contacts contact in mySystem[addressBookName])
+                {
+                    if (!(contact.firstName == firstName))
+                    {
+                        flag = 1;
+                    }
+                    else
+                    {
+                        flag = 0;
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                return true;
+            }
+            if (flag == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         public static void ContactsDisplay()
         {
             Console.WriteLine("Enter the name of the addressbook that you wants to use for displaying contacts");
@@ -109,8 +150,8 @@ namespace Address_Book_Using_Collection
                         Console.WriteLine("Address-->{0}", contact.address);
                         Console.WriteLine("City-->{0}", contact.city);
                         Console.WriteLine("State-->{0}", contact.state);
-                        Console.WriteLine("Zip code-->{0}", contact.ZipCode);
-                        Console.WriteLine("Phone number-->{0}", contact.PhoneNunmber);
+                        Console.WriteLine("Zip code-->{0}", contact.zipCode);
+                        Console.WriteLine("Phone number-->{0}", contact.phoneNunmber);
                         Console.WriteLine("E-Mail ID-->{0}", contact.eMail);
                         break;
                     }
@@ -167,11 +208,11 @@ namespace Address_Book_Using_Collection
                                     break;
                                 case 6:
                                     Console.WriteLine("Enter the new zip code");
-                                    contact.ZipCode = Console.ReadLine();
+                                    contact.zipCode = Console.ReadLine();
                                     break;
                                 case 7:
                                     Console.WriteLine("Enter the new phone");
-                                    contact.PhoneNunmber = Console.ReadLine();
+                                    contact.phoneNunmber = Console.ReadLine();
                                     break;
                                 case 8:
                                     Console.WriteLine("Enter the new E-Mail ID");

@@ -20,5 +20,4 @@ namespace Address_Book_Using_Collection
             AddressBookCollection.ContactsDisplay();
             AddressBookCollection.ContactsDisplay();
         }
-    }
 }
