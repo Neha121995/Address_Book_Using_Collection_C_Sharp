@@ -9,27 +9,34 @@ namespace Address_Book_Using_Collection
         public static List<Contacts> addressBook = new List<Contacts>();
         public static void AddContact()
         {
-            Contacts person = new Contacts();
+            Console.WriteLine("How many person's contact details do you want to add?");
+            int personNum = Convert.ToInt32(Console.ReadLine());
+            while (personNum > 0)
+            {
+                Contacts person = new Contacts();
 
-            Console.WriteLine("Enter your First name");
-            person.firstName = Console.ReadLine();
-            Console.WriteLine("Enter your Last name");
-            person.lastName = Console.ReadLine();
-            Console.WriteLine("Enter your address");
-            person.address = Console.ReadLine();
-            Console.WriteLine("Enter your city");
-            person.city = Console.ReadLine();
-            Console.WriteLine("Enter your State");
-            person.state = Console.ReadLine();
-            Console.WriteLine("Enter your Zip code");
-            person.zipCode = Console.ReadLine();
-            Console.WriteLine("Enter your Phone number");
-            person.phoneNunmber = Console.ReadLine();
-            Console.WriteLine("Enter your Email ID");
-            person.eMail = Console.ReadLine();
+                Console.WriteLine("Enter your First name");
+                person.firstName = Console.ReadLine();
+                Console.WriteLine("Enter your Last name");
+                person.lastName = Console.ReadLine();
+                Console.WriteLine("Enter your address");
+                person.address = Console.ReadLine();
+                Console.WriteLine("Enter your city");
+                person.city = Console.ReadLine();
+                Console.WriteLine("Enter your State");
+                person.state = Console.ReadLine();
+                Console.WriteLine("Enter your Zip code");
+                person.ZipCode = Console.ReadLine();
+                Console.WriteLine("Enter your Phone number");
+                person.PhoneNunmber = Console.ReadLine();
+                Console.WriteLine("Enter your Email ID");
+                person.eMail = Console.ReadLine();
 
-            addressBook.Add(person);
-            Console.WriteLine("{0}'s contact succesfully added", person.firstName);
+                addressBook.Add(person);
+                Console.WriteLine("{0}'s contact succesfully added", person.firstName);
+
+                personNum--;
+            }
         }
 
 
@@ -48,8 +55,8 @@ namespace Address_Book_Using_Collection
                         Console.WriteLine("Address-->{0}", contact.address);
                         Console.WriteLine("City-->{0}", contact.city);
                         Console.WriteLine("State-->{0}", contact.state);
-                        Console.WriteLine("Zip code-->{0}", contact.zipCode);
-                        Console.WriteLine("Phone number-->{0}", contact.phoneNunmber);
+                        Console.WriteLine("Zip code-->{0}", contact.ZipCode);
+                        Console.WriteLine("Phone number-->{0}", contact.PhoneNunmber);
                         Console.WriteLine("E-Mail ID-->{0}", contact.eMail);
                         break;
                     }
@@ -104,11 +111,11 @@ namespace Address_Book_Using_Collection
                                     break;
                                 case 6:
                                     Console.WriteLine("Enter the new zip code");
-                                    contact.zipCode = Console.ReadLine();
+                                    contact.ZipCode = Console.ReadLine();
                                     break;
                                 case 7:
                                     Console.WriteLine("Enter the new phone");
-                                    contact.phoneNunmber = Console.ReadLine();
+                                    contact.PhoneNunmber = Console.ReadLine();
                                     break;
                                 case 8:
                                     Console.WriteLine("Enter the new E-Mail ID");
@@ -127,7 +134,7 @@ namespace Address_Book_Using_Collection
                                 break;
                             }
                         }
-                        Console.WriteLine("{0}'s contact has been sucessfully added", editKey);
+                        Console.WriteLine("{0}'s contact has been sucessfully updated", editKey);
                         break;
                     }
                 }
