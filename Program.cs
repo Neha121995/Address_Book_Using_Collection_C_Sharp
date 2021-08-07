@@ -9,6 +9,8 @@ namespace Address_Book_Using_Collection
             Console.WriteLine("Welcome to Address Book using Collection");
             AddressBookCollection.AddContact();
             AddressBookCollection.ContactsDisplay();
+            AddressBookCollection.EditContact();
+            AddressBookCollection.ContactsDisplay();
         }
     }
 }
