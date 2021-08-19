@@ -214,5 +214,22 @@ namespace Address_Book_Using_Collection
 		{
 			WriteFile.readFile();
 		}
+		public void writeInCsvFile()
+		{
+			WriteFile.csvFileWriter(userList);
+		}
+
+		public void readFromCsvFile()
+		{
+			WriteFile.readFromCSVFile();
+		}
+		public void writeInJsonFile()
+		{
+			WriteFile.WriteContactsInJSONFile(userList);
+		}
+		public void readInJsonFile()
+		{
+			WriteFile.ReadContactsFromJSONFile();
+		}
 	}
 }
