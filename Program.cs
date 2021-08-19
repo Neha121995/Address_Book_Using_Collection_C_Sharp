@@ -7,8 +7,8 @@ namespace Address_Book_Using_Collection
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Address Book using Collection");
-            AddressBookCollection.addAddressBook();
-            AddressBookCollection.PersonSearch();
+            AddressBook.addAddressBook();
+            AddressBook.PersonSearch();
             //Console.WriteLine("\n");
             //AddressBookCollection.ContactsDisplay();
             //Console.WriteLine("\n");
