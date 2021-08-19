@@ -89,7 +89,7 @@ namespace Address_Book_Using_Collection
                 Console.WriteLine("Enter your Zip code");
                 person.zipCode = Console.ReadLine();
                 Console.WriteLine("Enter your Phone number");
-                person.phoneNunmber = Console.ReadLine();
+                person.phoneNumber = Console.ReadLine();
                 Console.WriteLine("Enter your Email ID");
                 person.eMail = Console.ReadLine();
 
@@ -151,7 +151,7 @@ namespace Address_Book_Using_Collection
                         Console.WriteLine("City-->{0}", contact.city);
                         Console.WriteLine("State-->{0}", contact.state);
                         Console.WriteLine("Zip code-->{0}", contact.zipCode);
-                        Console.WriteLine("Phone number-->{0}", contact.phoneNunmber);
+                        Console.WriteLine("Phone number-->{0}", contact.phoneNumber);
                         Console.WriteLine("E-Mail ID-->{0}", contact.eMail);
                         break;
                     }
@@ -212,7 +212,7 @@ namespace Address_Book_Using_Collection
                                     break;
                                 case 7:
                                     Console.WriteLine("Enter the new phone");
-                                    contact.phoneNunmber = Console.ReadLine();
+                                    contact.phoneNumber = Console.ReadLine();
                                     break;
                                 case 8:
                                     Console.WriteLine("Enter the new E-Mail ID");
@@ -322,6 +322,22 @@ namespace Address_Book_Using_Collection
                 Console.WriteLine("{0}", contact.firstName);
             }
             Console.WriteLine("Total count of persons in the state {0} is {1}", stateKey, statePersons[stateKey].Count);
+        }
+
+        public static void AddressBookSorting()
+        {
+            Console.WriteLine("Enter the addressbook name that you want to sort :");
+            string addressBookName = Console.ReadLine();
+            if (mySystem.ContainsKey(addressBookName))
+            {
+                mySystem[addressBookName].Sort((x, y) => x.firstName.CompareTo(y.firstName));
+                Console.WriteLine("Sorted");
+            }
+            else
+            {
+                Console.WriteLine("The given addressbook does not exist. please enter a valid addressbook  name");
+                AddressBookSorting();
+            }
         }
     }
 }
